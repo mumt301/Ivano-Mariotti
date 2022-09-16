@@ -5,24 +5,44 @@ The following questionnaire seeks to understand your previous knowledge about so
 
 1. Do you know any programming languages? If you do, which ones?
 
+I unfortunately do not know any languages of coding, however I am aware of the variants existing such as java, python and C++
+
 2. What is your primary computer operating system (OS)?
+
+I operate both on Mac OS and Windows 10 equally.
 
 3. Do you own a smartphone, tablet, or mobile device? What is your favourite OS for mobile devices?
 
+I own an iPhone, and it is currently my favorite OS to operate on a mobile device. 
+
 4. Do you use any social networking services? If you do, which ones? Why?
+
+I do use social networking services, such as instagram and twitter. I use Instagram to browse family and friends pictures, and twitter is used to keep up with daily modern world occurrences. 
 
 5. Expand the following acronyms and do research about their meaning. You may look them up if you don't know:
 
-    HTTP
-    REST    
-    API
-
+    HTTP: HTTP stands for "Hypertext Transfer Protocol", which is the transferring of encoded text, images, sound/videos from a client to a web server.
+    
+    REST: REST stands for Representational state transfer, which is a software architectural style that describes a consistent interface between physical separate components in a Client-server architecture. There are four separate interface constraints: HATEOAS (Hypermedia As The Engine Of Application State), Self-descriptive messages, Identification of resources and Manipulation of resources. 
+    
+    API: API stands for Application Programming Interface, which is a softawre intermediare, allowing two or more applications to communicate with each other, for example: the weather app collects information sent from other sources such as weather staions/ radars. 
+    
 6. Do you play a musical instrument or sing? If so, how much experience do you have?
+
+I am a musician since the age of 5, starting off with drums, then was taught percussion and piano in high school and have continued playing all three til present. 
 
 7. Can you read music notation? If so, how well?
 
+I can read music notation fairly well, however despite my experience, my sight reading does need some practice. 
+
 8. How large is your personal music collection? Estimate the number of artists, albums, and songs. If instead you listen to music using streaming services, how many playlists, artists, albums, and songs do you have in your account?
+
+If i had to guess, I would say digitally I have more than 500+ hours of music saved in playlists or downloaded. Phyiscal records include a few dozen CDs, 72 vinyls and a dozen cassettes. 
 
 9. How do you search and find new music? How do you think this affects the types of artists that you end up listening to?
 
+For the most part I find artists through youtube or spotify, which definitely influences the styles i listen to because of algorithm technology. However, i have on more than one occasion been to a vinyl sales shop which is a treat to find buried records in less common styles of music played today. 
+
 10. Name two musical artists that you like. What do you find interesting about their music that makes you like them?
+
+Nat King Cole and MF Doom. What interests me the most about Nat King Cole is his approach to Jazz, combining classical and hollywood themes and instruments, giving some of the smoothest records tonewise. For MF Doom, the sampling techniques and sampling choices used on his records, combined with his lyrical flow create in my opinion some of the best rap since the genre came to existence. 
