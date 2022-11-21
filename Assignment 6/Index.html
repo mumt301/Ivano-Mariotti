@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+        <title>API Assignment</title>
+      <link rel="stylesheet" href="styles.css">
+            <h2>Assignment 6 = API call</h2>
+    </head>
+    <body>
+        <div>
+            <p>Discography & Dates of any artist.</p>
+
+      <form id='artist' method="GET">
+
+          <label for="name">Artist name?</label>
+
+              <input type="text" name="artist" id="name">
+              <input type="submit" value="Get Results">
+      </form>
+
+        </div>
+
+        <div id="table" class="center"></div>
+
+          <script type="text/JavaScript">
+            function queryArtist() {
+                let params = (new URL(document.location)).searchParams;
+                if (params.has('artist')) {
+                    let artistName = params.get('artist');
+                    let mBaseURL = "https://musicbrainz.org/ws/2/";
+                    let mbResource = "artist?query=";
+                    let queryURL = mBaseURL + mbResource + artistName;
+                    httpGet(queryURL, getMBID);
+                }
+            }
+
+            function httpGet(theURL, cbFunction) {
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", theURL);
+                xmlHttp.send();
+                xmlHttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        cbFunction(this);
+                    }
+                };
+            }
+
+            function getMBID(xhttp) {
+                let retrievedData = xhttp.responseXML;
+                console.log(retrievedData);
+                let artistData = retrievedData.getElementsByTagName('artist')[0];
+                let artistMBID = artistData.id;
+                let artistName = artistData.getElementsByTagName('name')[0].innerHTML;
+
+                let mBaseURL = "https://musicbrainz.org/ws/2/release-group?artist=";
+                let queryURL = mBaseURL + artistMBID;
+                console.log(queryURL);
+                httpGet(queryURL, getAlbums)
+            }
+
+            function getAlbums(xhttp) {
+                 let retrievedData = xhttp.responseXML;
+                 console.log(retrievedData);
+                 var albums = [];
+                 let all=retrievedData.getElementsByTagName('release-group');
+                 for (var i = all.length - 1; i >=0; i--) {
+                     let type=all[i].getAttribute('type');
+                     console.log(type);
+                     if(type=='Album') {
+                         albums.push(all[i]);
+                     }
+                 }
+                 sortedAlbums=albums.sort((a,b)=>new Date(a.getElementsByTagName('first-release-date')[0].innerHTML) - new Date(b.getElementsByTagName('first-release-date')[0].innerHTML));
+                 displayTable(sortedAlbums);
+            }
+
+            function displayTable(albums) {
+                let table = document.createElement('table');
+                table.id = 'table';
+
+                tr = document.createElement('tr');
+                td1 = document.createElement('td');
+                  tr.appendChild(td1);
+
+                td1.innerHTML = "<b>Album<b>";
+                td2 = document.createElement('td');
+                  tr.appendChild(td2);
+
+                td2.innerHTML = "<b>Release Date<b>";
+                  table.appendChild(tr);
+
+            for (row = 0; row < albums.length; row++) {
+                tr = document.createElement('tr');
+                td1 = document.createElement('td');
+                  tr.appendChild(td1);
+
+                td1.innerHTML = albums[row].getElementsByTagName('title')[0].innerHTML;
+                td2 = document.createElement('td');
+                  tr.appendChild(td2);
+
+                td2.innerHTML = albums[row].getElementsByTagName('first-release-date')[0].innerHTML;
+                  table.appendChild(tr);
+                }
+                document.getElementById('table').appendChild(table);
+            }
+            window.onload = queryArtist;
+        </script>
+    </body>
+</html>
