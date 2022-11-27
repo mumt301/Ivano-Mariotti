@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Theremin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="ASS7.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+    <script src="ASS7.js" type="text/JavaScript"></script>
+    <script src="AUX.js" type="text/JavaScript"></script>
+</head>
+
+<body>
+    <h1 id="centered">An online <span id="thereminLogo">Theremin</span> instrument</h1>
+
+    <div id="thereminZone"></div>
+    <div id="note">
+
+        <form method="get" id="theform">
+            <fieldset>
+                <legend>Theremin Parameters</legend>
+
+                <label for="osctype">Oscillator Type</label>
+                <select name="osctype" id="osctype">
+                    <option value="sine">Sine</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="square">Square</option>
+                    <option value="sawtooth">Sawtooth</option>
+                </select>
+
+                <label for="playbacktype">Playback Type</label>
+                <select name="playbacktype" id="playbacktype">
+                    <option value="glide">Glide</option>
+                    <option value="click">Press</option>
+                </select>
+
+                <label for="notemode">Note Selection</label>
+                <select name="notemode" id="notemode">
+                    <option value="any">Any</option>
+                    <option value="fixed">Fixed Notes</option>
+                </select>
+
+                <label for="minfreq">Minimum frequency (55Hz)</label>
+                <input type="number" id="minfr" name="minfr" min="55" max="220" value="220">
+                <label for="maxfreq">Maximum frequency (3520Hz)</label>
+                <input type="number" id="maxfr" name="maxfr" min="440" max="3520" value="880">
+
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    <div id="parent">
+        <div id="param">
+            <form id="theform">
+                <fieldset>
+                    <legend>Note Information</legend>
+                    <p id="note1"></p>
+                    <p id="frequency1"></p>
+                    <p id="otoc1"></p>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
