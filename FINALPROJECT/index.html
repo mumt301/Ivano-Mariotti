@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=100%, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+    <script src="./final.js"></script>
+    <style>
+      #issMap {
+        height: 360px;
+      }
+    </style>
+
+    <title>Fetch JSON from API and map lat lon</title>
+  </head>
+  <body>
+    <h1>Closest radio station to ISS?</h1>
+
+    <p>
+      latitude: <span id="lat"></span>°<br />
+      longitude: <span id="lon"></span>° <br />
+      visibility: <span id="vis"></span>° <br />
+
+    </p>
+
+  <audio id="radio" controls></audio>
+
+    <div id="issMap"></div>
+    <!-- <script>
+      const mymap = L.map('issMap').setView([0, 0], 6);
+      const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      const tiles = L.tileLayer(tileUrl, { attribution });
+      tiles.addTo(mymap);
+
+      const issIcon = L.icon({
+        iconUrl: 'iss200.png',
+        iconSize: [50, 32],
+        iconAnchor: [25, 16]
+      });
+      let marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
+
+      const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+      let firstTime = true;
+
+      async function getISS() {
+        const response = await fetch(api_url);
+        const data = await response.json();
+        const { latitude, longitude, visibility } = data;
+
+        mymap.setView([latitude, longitude, visibility], mymap.getZoom());
+        marker.setLatLng([latitude, longitude, visibility]);
+
+        document.getElementById('lat').textContent = latitude.toFixed(2);
+
+        document.getElementById('lon').textContent = longitude.toFixed(2);
+
+        document.getElementById('vis').textContent = visibility;
+      }
+
+      getISS();
+      setInterval(getISS, 3000);
+    </script>
+
+    <script>
+
+    function haversine(lat1, lon1, lat2, lon2) {
+      // Convert latitudes and longitudes to radians
+      lat1 = toRadians(lat1);
+      lon1 = toRadians(lon1);
+      lat2 = toRadians(lat2);
+      lon2 = toRadians(lon2);
+
+      // Calculate the distance using the haversine formula
+      const a = Math.pow(Math.sin((lat2 - lat1) / 2), 2) +
+        Math.cos(lat1) * Math.cos(lat2) *
+        Math.pow(Math.sin((lon2 - lon1) / 2), 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = 6371 * c; // 6371 is the radius of the Earth in kilometers
+
+      console.log(`haversine distance ${distance}`);
+      return distance;
+    }
+
+    function toRadians(degrees) {
+      return degrees * (Math.PI / 180);
+    }
+
+    const radioUrl2 = "https://listen.kwmr.org/live?listening-from-radio-garden=1671294587";
+
+    async function getISS() {
+    const response = await fetch(api_url);
+    console.log("getISS");
+    const data = await response.json();
+    const { latitude, longitude } = data;
+
+    const radioLat1 = 44.6488;
+    const radioLon1 = -63.5752;
+    const distance1 = haversine(latitude, longitude, radioLat1, radioLon1);
+
+
+    const radioLat2 = 37.9010;
+    const radioLon2 = -122.2929;
+    const distance2 = haversine(latitude, longitude, radioLat2, radioLon2);
+
+    if (distance1 < distance2 && distance1 < 1000) {
+
+    const audioElement = document.getElementById("radio");
+    audioElement.src = radioUrl2;
+    audioElement.play();
+    } else if (distance2 < distance1 && distance2 < 1000) {
+
+    }
+
+    console.log("getISS");
+
+    mymap.setView([latitude, longitude], mymap.getZoom());
+    marker.setLatLng([latitude, longitude]);
+
+    document.getElementById('lat').textContent = latitude.toFixed(2);
+    document.getElementById('lon').textContent = longitude.toFixed(2);
+    }
+     -->
